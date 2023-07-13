@@ -7,41 +7,172 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab&display=swap"> -->
     <script src="https://kit.fontawesome.com/bf62c6bf40.js" crossorigin="anonymous"></script>
+    <script src="js/features_script.js"></script>
 </head>
 
 <body>
     <header>
         <p><span>coza</span> store</p>
 
-        <div id="nav1">
-            <ul>
-                <li> <a href="index.html">Home</a></li>
-                <li> <a href="shop.html">Shop</a></li>
-                <li> <a href="#">Features</a></li>
-                <li> <a href="blog.html">Blog</a></li>
-                <li> <a href="about.html">About</a></li>
-                <li> <a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="#">Features</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
 
-        <div id="nav2">
-            <ul>
-                <li> <a href=""> <i class="fas fa-light fa-magnifying-glass" style="color: #100f0f;"></i></a>
-                </li> <!-- search bar-->
-                <li> <a href=""> <i class="fas fa-cart-shopping" style="color: #100f0f;"></i> </a></li>
-                <li> <a href=""> <i class="fas fa-heart" style="color: #100f0f;"></i></a></li>
-                <li> <a href=""><i class="fas fa-user" style="color: #100f0f;"></i></a></li>
-            </ul>
+        <div id="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-user"></i>
         </div>
     </header>
 
-    <!-- <nav class="breadcrumb">
-        <a href="/">Home</a> >
-        <a href="/items">Items</a> >
-        <span class="current-page">Current Page</span>
-      </nav>
-       -->
-      
+    <hr style="width: 100%; color: #5A5A5A;">
+
+    <nav class="breadcrumb">
+        <div id="space">
+            <a href="index.html">Home</a> >
+            <span class="current">Shopping Cart</span>
+        </div>
+    </nav>
+
+    <div id="tableau">
+        <main>
+            <table  style="font-family: Arial, sans-serif; font-weight: 400; font-size: 15px; color: rgb(85, 85, 85);">
+                <thead>
+                    <tr>
+                        <th>product</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                        <th>total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="img/grey_sweater.jpg">
+                            <span id="aligned_text">grey sweater</span>
+                        </td>
+                        <td id="price">$16.00</td>
+                        <td>
+                            <div class="quantity-wrapper">
+                                <button onclick="decreaseQuantity(this)">-</button>
+                                <button class="quantity-button" disabled>1</button>
+                                <button onclick="increaseQuantity(this)">+</button>
+                            </div>
+                        </td>
+                        <td id="total">$16.00</td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/coat.jpg">
+                            <span id="aligned_text">brown coat</span>
+                        </td>
+                        <td id="price">$36.00</td>
+                        <td>
+                            <div class="quantity-wrapper">
+                                <button onclick="decreaseQuantity(this)">-</button>
+                                <button class="quantity-button" disabled>1</button>
+                                <button onclick="increaseQuantity(this)">+</button>
+                            </div>
+                        </td>
+                        <td id="total">$36.00</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Coupon Code" class="coup_button"
+                                style="padding-left: 1rem;"></td>
+                        <td><button class="coup_button">apply coupon</button></td>
+                        <td><button class="coup_button">update cart</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <div class="cart-total">
+            <div class="cart-summary">
+                <h3>CART TOTALS</h3>
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span>$100</span>
+                    <hr style="border: none; border-top: 1px dashed black;">
+                </div>
+
+                <div class="cart-shipping">
+                    <span class="shipping-label">Shipping:</span>
+                    <div class="cart-message">
+                        <div class="cart-aside">
+                            <p class="message-text">There are no shipping methods <br>available. Please double check
+                                your <br>
+                                address, or contact us if you <br> need any help.</p>
+
+                            <form class="country">
+                                <p>CALCULATE SHIPPING</p>
+                                <select id="shipping-method" name="shipping-method">
+                                    <option value="" disabled selected>Select a country...</option>
+                                    <option value="usa">USA</option>
+                                    <option value="uk">UK</option>
+                                    <option value="nig">Nigeria</option>
+                                </select>
+                                <input type="text" placeholder="State">
+                                <input type="text" placeholder="PostCode/ZipCode">
+                                <input type="button" value="Update Totals">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="checkout-button">Proceed to Checkout</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>CATEGORIES</h4>
+                <ul>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Watches</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>GET IN TOUCH</h4>
+                <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
+                    (+1) 96 716 6879</p>
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <h4>Subscribe to our Newsletter</h4>
+            <form>
+                <input type="email" placeholder="youremail@gmail.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Coza Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+
 </body>
 
 </html>
